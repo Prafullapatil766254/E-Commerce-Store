@@ -1,0 +1,29 @@
+package com.example.user.service.exceptions;
+
+import com.example.user.service.exceptions.custom.UserNotFoundException;
+import com.example.user.service.exceptions.custom.ValidationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ResponseMessage> handleUserNotFoundException(UserNotFoundException exception){
+        return new ResponseEntity<>(ResponseMessage.builder()
+                .message(exception.getMessage())
+                .statusCode(exception.getStatusCode())
+                .build(), HttpStatus.NOT_FOUND);
+    }
+
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<ResponseMessage> handleValidationException(ValidationException exception){
+        return new ResponseEntity<>(ResponseMessage.builder()
+                .message(exception.getMessage())
+                .statusCode(exception.getStatusCode())
+                .build(), HttpStatus.BAD_REQUEST);
+    }
+}

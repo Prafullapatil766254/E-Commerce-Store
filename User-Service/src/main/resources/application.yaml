@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: User-Service
+    name: USER-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/e_commerce_store?useSSL=false&serverTimezone=UTC
     username: root

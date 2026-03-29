@@ -2,7 +2,7 @@ server:
   port: 8082
 spring:
   application:
-    name: Product-Service
+    name: PRODUCT-SERVICE
   data:
     mongodb:
       uri: mongodb://admin:Prafull%4007%40@localhost:27017/e_commerce_store?authSource=admin

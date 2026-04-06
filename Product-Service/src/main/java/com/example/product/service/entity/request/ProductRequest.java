@@ -1,28 +1,22 @@
-package com.example.product.service.entity;
+package com.example.product.service.entity.request;
 
 import com.example.product.service.entity.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.*;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
  * @author Prafull_Patil
- * Product Pojo  - Collection Pojo
+ * Request Pojo For {@link com.example.product.service.entity.Product}
  */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder(toBuilder = true)
-@Document(collection = "products")
-public class Product {
+public class ProductRequest {
 
-    @Id
     private String id;
 
     private String name;
@@ -38,18 +32,4 @@ public class Product {
     private Category category;
 
     private List<String> imageUrls;
-
-    private Boolean isAvailable;
-
-    @CreatedDate
-    private LocalDateTime createdAt;
-
-    @CreatedBy
-    private String createdBy;
-
-    @LastModifiedBy
-    private String updatedBy;
-
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
 }

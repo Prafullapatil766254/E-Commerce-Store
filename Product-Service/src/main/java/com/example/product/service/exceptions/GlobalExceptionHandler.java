@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseMessage> handleValidationException(ValidationException exception){
         return new ResponseEntity<>(ResponseMessage.builder()
                 .message(exception.getMessage())
-                .statusCode(exception.getStatusCode())
-                .build(), HttpStatus.BAD_REQUEST);
+                .statusCode(exception.getErrorResponse().getCode())
+                .build(), exception.getErrorResponse().getHttpStatus());
     }
 }
